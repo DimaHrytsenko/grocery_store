@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>{{ greeting }}</h1>
+<a href="{% url 'login_page' %}">Login</a><br>
+<a href="{% url 'logout_page' %}">Logout</a><br>
+<a href="{% url 'auth_page' %}">Secret page for authorized users</a><br>
+<a href="{% url 'employee_page' %}">Add new employee</a><br>
+<a href="{% url 'feedback_page' %}">Write feedback</a><br>
+<a href="{% url 'supplier_info' %}">Suppliers info</a><br>
+<h2>API Links</h2>
+<a href="{% url 'feedback_sorted' %}">Feedbacks sorted for creating date</a><br>
+{#<a href="{% url 'feedback_id' %}">Feedback for id</a><br>#}
+<a href="{% url 'feedback_add' %}">Add feedback for authenticated users</a><br>
+{#<a href="{% url 'feedback_delete' %}">Delete feedback for admin user</a><br>#}
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% if user.is_authenticated %}
+    <h1>Hello {{ user.first_name }}</h1>
+    {% if user.is_superuser %}
+        <h2>Hello, admin!</h2>
+    {% elif user.is_staff %}
+        <h2>Hello, staff!</h2>
+    {% else %}
+        <h2>Hello, user!</h2>
+    {% endif %}
+    <a href="{% url 'logout_page' %}">Logout</a>
+    <br>
+    <a href="{% url 'auth_page' %}">Secret page</a>
+    <br>
+    <a href="{% url 'feedback_page' %}">Write feedback</a>
+{% else %}
+    <form method="post">
+        {% csrf_token %}
+        <label for="login_id">Login: </label><input id="login_id" name="input_login">
+        <br>
+        <label for="password_id">Password: </label><input type="password" id="password_id" name="input_password">
+        <br>
+        <button type="submit">Log In</button>
+    </form>
+    {{ error }}
+{% endif %}
+
+
+</body>
+</html>
